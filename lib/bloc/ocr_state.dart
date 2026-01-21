@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:equatable/equatable.dart';
+import 'package:project/models/expense_model.dart';
 
 abstract class OcrState extends Equatable {
   const OcrState();
@@ -13,11 +14,11 @@ class OcrLoading extends OcrState {}
 
 class OcrSuccess extends OcrState {
   final File image;
-  final String extractedText;
+  final ExpenseModel expense;
 
-  const OcrSuccess(this.image, this.extractedText);
+  const OcrSuccess(this.image, this.expense);
   @override
-  List<Object> get props => [image, extractedText];
+  List<Object> get props => [image, expense];
 }
 
 class OcrError extends OcrState {
